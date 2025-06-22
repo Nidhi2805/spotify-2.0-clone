@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useGetSongsBySearchQuery } from '../services/apiSlice';
-import { SongList, SearchBar, Loader, Error } from '../components';
+import  SongList  from '../components/SongList';
+import SearchBar from '../components/SearchBar';
+import Loader from '../components/Loader';
+import Error  from '../components/Error';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');

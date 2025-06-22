@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../features/authSlice';
-import { PlaylistGrid, SongList } from '../components';
+import  PlaylistGrid  from '../components/PlaylistGrid';
+import  SongList  from '../components/SongList';
+
 
 const Library = () => {
   const user = useSelector(selectCurrentUser);

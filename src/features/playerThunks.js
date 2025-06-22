@@ -1,15 +1,23 @@
-import { setActiveSong, playPause } from './playerSlice';
-import { useGetSongDetailsQuery } from '../services/apiSlice';
+import { setActiveSong, playPause, updateSongDetails } from './playerSlice';
+import { apiSlice } from '../services/apiSlice';
 
 export const playSong = (song, data, i) => async (dispatch) => {
   try {
     dispatch(setActiveSong({ song, data, i }));
 
-    const { data: songDetails } = await useGetSongDetailsQuery(song.key);
+    const result = await dispatch(
+      apiSlice.endpoints.getSongDetails.initiate(song.key)
+    );
 
-    dispatch(updateSongDetails(songDetails));
+    if (result?.data) {
+      dispatch(updateSongDetails(result.data));
+    }
 
     dispatch(playPause(true));
+    dispatch(updateFavoriteStatus(song));
+    dispatch(updateShuffledSongs());
+    dispatch(resetSongsOrder());
+    dispatch(addSongToPlaylist(song));
   } catch (error) {
     console.error('Error playing song:', error);
   }

@@ -11,6 +11,11 @@ import { playPause, nextSong, prevSong } from '../features/playerSlice';
 import { FaPlay, FaPause, FaStepForward, FaStepBackward, FaVolumeUp, FaRandom, FaRedo } from 'react-icons/fa';
 import { MdPlaylistAdd, MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 import WaveSurfer from 'wavesurfer.js';
+import {
+  updateFavoriteStatus, 
+  updateShuffledSongs, 
+  resetSongsOrder,
+  addSongToPlaylist} from '../features/playerSlice'
 
 const Player = () => {
   const dispatch = useDispatch();

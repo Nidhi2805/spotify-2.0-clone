@@ -16,3 +16,8 @@ export const selectIsPlaying = createSelector(
   [selectPlayer],
   (player) => player.isPlaying
 );
+
+export const selectCurrentIndex = createSelector(
+  [selectPlayer],
+  (player) => player.currentIndex
+);

@@ -3,7 +3,8 @@ import { useGetTopChartsQuery, useGetSongsByGenreQuery } from '../services/apiSl
 import { useSelector, useDispatch } from 'react-redux';
 import { selectGenreListId, setActiveSong, playPause } from '../features/playerSlice';
 import { FaPlay, FaPause } from 'react-icons/fa';
-import { Loader, Error } from '../components';
+import  Loader  from '../components/Loader';
+import  Error  from '../components/Error';
 import styles from './Home.module.css';
 
 const Home = () => {

@@ -21,6 +21,9 @@ export const apiSlice = createApi({
     getSongDetails: builder.query({ 
       query: ({ songid }) => `/track/details?id=${songid}` 
     }),
+    getPlaylist: builder.query({
+      query: (playlistId) => `/playlist/details?id=${playlistId}`
+    }),    
   }),
 });
 
@@ -29,4 +32,5 @@ export const {
   useGetSongsBySearchQuery,
   useGetSongsByGenreQuery,
   useGetSongDetailsQuery,
+  useGetPlaylistQuery,
 } = apiSlice;

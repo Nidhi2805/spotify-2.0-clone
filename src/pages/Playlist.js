@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetPlaylistQuery } from '../services/apiSlice';
 import { useSelector } from 'react-redux';
-import { PlayerControls, SongList, PlaylistHeader } from '../components';
-
+import  PlayerControls  from '../components/PlayerControls';
+import  SongList  from '../components/SongList';
+import  PlaylistHeader  from '../components/PlaylistHeader';
+import Loader from '../components/Loader';
+import Error from '../components/Error';
 const Playlist = () => {
   const { id } = useParams();
   const { data: playlist, isLoading, error } = useGetPlaylistQuery(id);
